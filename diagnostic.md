@@ -6,21 +6,22 @@ Record your responses inside the fenced code blocks below each question.
     and what are the main task(s) you perform inside an Ember Route?
 
     ```md
-    <!-- your response here -->
+    Router creates url paths and points to directory to look for template in.
+    Route - define the model hook and defines what happens when you visit that URL route.
     ```
 
 1.  What is the command to generate a route named `boston` nested under
     `campus`?
 
     ```md
-    <!-- your response here -->
+    ember generate route campus/boston
     ```
 
 1.  Suppose you have a nested route at the URL `/campus/boston`. How would you
     use the `link-to` helper to generate an appropriate link?
 
     ```md
-    <!-- your response here -->
+    {{#link-to 'boston'}}Boston{{/link-to}}
     ```
 
 1.  Explain **at least** two differences between the following two route
@@ -35,7 +36,9 @@ Record your responses inside the fenced code blocks below each question.
     ```
 
     ```md
-    <!-- your response here -->
+    1) The top one has a nested route for product within products whereas bottom one does not.
+    2) The url paths are different (even though they point to same template directory)
+
     ```
 
 1.  Suppose we have the following route definition:
@@ -48,11 +51,19 @@ Record your responses inside the fenced code blocks below each question.
     value `'123'` inside a Route?
 
     ```md
-    <!-- your response here -->
+    Hmm... not entirely sure but based on training repo from yesterday,
+    maybe something like this:
+      const id = params.movie_id;
+      params would then get passed into the model hook as an argument.
     ```
 
 1.  Inside a template, how do we reference data provided by a Route?
 
     ```md
-    <!-- your response here -->
+    We use handlebars to define what we want to refer to each item returned by the model as. For example, with movies (assuming that movies have a name and title attribute):
+    <ul>
+      {{#each model as |movie|}}
+        <li>Name: {{movie.name}} Title: {{movie.title}}</li>
+      {{/each}}
+    </ul>
     ```
